@@ -1,0 +1,40 @@
+﻿@model Category
+
+<form method="post">
+    <div class="border p-3 mt-4">
+        <div class="row pb-2">
+            <h2 class="text-primary">Create New Catogory</h2>
+        </div>
+        <div asp-validation-summary="All"></div>
+        <div class="row mb-3">
+            <label asp-for="Name" class="text-black col-2"></label>
+            <input asp-for="Name" class="col-9" />
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+        <div class="row mb-3">
+            <label asp-for="DisplayOrder" class="text-black col-2"></label>
+            <input asp-for="DisplayOrder" class="col-9" />
+            <span asp-validation-for="DisplayOrder" class="text-danger"></span>
+        </div>
+        <div class="row mb-3">
+            <label asp-for="Title" class="text-black col-2"></label>
+            <input asp-for="Title" class="col-9"/>
+            <span asp-validation-for="Title" class="text-danger"></span>
+        </div>
+        <div class="row mb-3">
+            <label asp-for="Description" class="text-black col-2"></label>
+            <input asp-for="Description" class="col-9"/>
+            <span asp-validation-for="Description" class="text-danger"></span>
+        </div>
+        <div class="row mb-3">
+            <label asp-for="Active" class="text-black col-2"></label>
+            <input asp-for="Active" type="checkbox"/>
+            <span asp-validation-for="Active" class="text-danger"></span>
+        </div>
+        <button type="submit" class="btn btn-primary" style="width:150px">Create</button>
+        <a class="btn btn-secondary" asp-controller="Category" asp-action="Index" style="width:150px">Back to list</a>
+    </div>
+</form>
+@section Scripts{
+    <partial name="_ValidationScriptsPartial"/>
+}

@@ -1,0 +1,72 @@
+﻿@model IEnumerable<Category>
+@{
+    ViewData["Title"] = "Index";
+}
+<div class="container p-3">
+    <div class="row pt-4">
+        <div class="col-6">
+            <h2 class="text-primary">Category List</h2>
+        </div>
+        <div class="col-6 text-end">
+            <a asp-controller="Category" asp-action="AddNewCategory" class="btn btn-primary">
+                <i class="fa-solid fa-circle-plus"></i> &nbsp;Create New Category</a>
+        </div>
+    </div>
+
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>
+                    Category Name
+                </th>
+                <th>
+                    Display Order
+                </th>
+                <th>
+                    DateCreate
+                </th>
+                <th>
+                    Title
+                </th>
+                <th>
+                    Description
+                </th>
+                <th>    
+                    Action
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(var obj in Model)
+            {
+                <tr>
+                    <td class="col-2">
+                        @obj.Name
+                    </td>
+                    <td class="col-2">
+                        @obj.DisplayOrder
+                    </td>
+                    <td class="col-2">
+                        @obj.DateCreated
+                    </td>
+                    <td class="col-2">
+                        @obj.Title
+                    </td>
+                    <td class="col-2">
+                        @obj.Description
+                    </td>
+                    <td class="col-2">
+                        @obj.Active
+                        @obj.CategoryId
+                    </td>
+                    <td>
+                        <a class="btn-sm btn-primary" asp-controller="Category" asp-action="EditCategory" asp-route-id="@obj.CategoryId">
+                            <i class="fa-regular fa-pen-to-square"></i>
+                            &nbsp; Edit
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
